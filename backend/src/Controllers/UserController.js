@@ -24,8 +24,6 @@ module.exports = {
         {
           association: "photoUploads",
           separate: true,
-          offset: page * pageSize, // <--- OFFSET
-          limit: pageSize // <--- LIMIT }
         }
       ],
       group: ["User.id"]
