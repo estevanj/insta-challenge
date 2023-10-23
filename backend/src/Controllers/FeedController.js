@@ -29,6 +29,27 @@ module.exports = {
       attributes: {
         exclude: ["updatedAt"]
       },
+      include: [
+        {
+          association: "uploadedBy",
+          attributes: ["username", "avatar_url"]
+        },
+        {
+          association: "getComments",
+          attributes: {
+            exclude: ["photo_id", "updatedAt"]
+          },
+          include: {
+            association: "postedBy",
+            attributes: ["username"]
+          },
+          limit: 3
+        },
+        {
+          association: "getLikes",
+          attributes: ["user_id"]
+        }
+      ],
   
       where: { user_id: { [Sequelize.Op.in]: array } },
       order: [["createdAt", "desc"]]

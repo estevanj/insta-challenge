@@ -10,6 +10,7 @@ const FeedController = require("./Controllers/FeedController");
 const SearchController = require("./Controllers/SearchController");
 const multerConfig = require("./Config/multer");
 const PhotoController = require("./Controllers/PhotoController");
+const FollowController = require("./Controllers/FollowController");
 
 routes.post("/auth", ValidationAuth.login, AuthController.login);
 routes.get(
@@ -30,5 +31,8 @@ routes.post(
   multer(multerConfig).single("file"),
   PhotoController.store
 );
+routes.get("/photos/:id", authMiddleware, PhotoController.show);
+
+routes.post("/follows/:user_id", authMiddleware, FollowController.store);
 
 module.exports = routes;

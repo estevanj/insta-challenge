@@ -13,9 +13,6 @@ module.exports = {
     const photo = await Photo.findByPk(id, {
       attributes: {
         exclude: ["updatedAt"],
-        include: [
-          [Sequelize.fn("COUNT", Sequelize.col("getLikes")), "likesCount"]
-        ]
       },
       include: [
         {
