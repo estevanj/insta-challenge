@@ -6,6 +6,7 @@ import { Search, Person, ExitToApp } from "@material-ui/icons";
 import logo from "../../assets/logo.svg";
 
 import ModalUploadPhoto from "../Modal/ModalUploadPhoto";
+import SearchContainer from "../Search";
 
 import { SearchContext } from "../../store/context/SearchContext";
 import { AuthContext } from "../../store/context/AuthContext";
@@ -45,7 +46,9 @@ function Header({ history }) {
     //eslint-disable-next-line
   }, [term]);
 
-
+  const toggleClose = () => {
+    setTerm("");
+  };
   return (
     <Nav>
       <Container>
@@ -66,7 +69,7 @@ function Header({ history }) {
           />
           <Input placeholder="Buscar" value={term} onChange={handleSearch} />
 
-       
+          {term.length > 0 && <SearchContainer toggleClose={toggleClose} />}
         </ContainerSearch>
         <ContainerOpcitions>
           <ModalUploadPhoto />
