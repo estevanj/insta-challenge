@@ -7,7 +7,7 @@ import logo from "../../assets/logo.svg";
 import api from "../../services/api";
 import { login } from "../../services/auth";
 
-import { Container, Gif, FormContainer, Form, Footer } from "./styles";
+import { Container, FormContainer, Form, Footer } from "./styles";
 
 import ErrorMessage from "../../components/ErrorMessage";
 
@@ -51,8 +51,6 @@ export default function Register({ history }) {
 
   return (
     <Container>
-      <Gif src="./img/mobilegif.gif" alt="gif" height="620" />
-
       <FormContainer>
         <Form onSubmit={handleSubmit}>
           <img src={logo} alt="logo" width="230" />
