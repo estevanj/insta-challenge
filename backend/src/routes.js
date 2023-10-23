@@ -5,12 +5,14 @@ const authMiddleware = require("./Middleware/auth");
 const ValidationAuth = require("./Validations/ValidationAuth");
 const AuthController = require("./Controllers/AuthController");
 const ValidationsUser = require("./Validations/ValidationUser");
+const ValidationComment = require("./Validations/ValidationComment");
 const UserController = require("./Controllers/UserController");
 const FeedController = require("./Controllers/FeedController");
 const SearchController = require("./Controllers/SearchController");
 const multerConfig = require("./Config/multer");
 const PhotoController = require("./Controllers/PhotoController");
 const FollowController = require("./Controllers/FollowController");
+const CommentController = require("./Controllers/CommentController");
 
 routes.post("/auth", ValidationAuth.login, AuthController.login);
 routes.get(
@@ -34,5 +36,12 @@ routes.post(
 routes.get("/photos/:id", authMiddleware, PhotoController.show);
 
 routes.post("/follows/:user_id", authMiddleware, FollowController.store);
+
+routes.post(
+  "/comments/:photo",
+  ValidationComment.comment,
+  authMiddleware,
+  CommentController.store
+);
 
 module.exports = routes;

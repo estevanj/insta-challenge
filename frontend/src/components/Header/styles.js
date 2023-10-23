@@ -31,6 +31,7 @@ export const Container = styled.div`
 
 export const Img = styled.img`
   height: 56px;
+  padding:10px;
 `;
 
 export const ContainerSearch = styled.div`
