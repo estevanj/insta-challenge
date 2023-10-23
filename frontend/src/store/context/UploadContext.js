@@ -34,6 +34,7 @@ const UploadContextProvider = ({ children }) => {
       if (res.status === 200)
         dispatch({ type: UPLOAD_PHOTO_SUCCESS, payload: res.data });
     } catch (error) {
+      console.log('error---------->', error)
       if (error.response.status === 500) {
         dispatch({ type: UPLOAD_PHOTO_ERROR });
       }

@@ -49,7 +49,7 @@ export default function Upload() {
   };
 
   return (
-    <Container onSubmit={handleUpload} enctype="multipart/form-data">
+    <Container onSubmit={handleUpload} encType="multipart/form-data">
       {image ? (
         <ImagePreview
           src={image}
