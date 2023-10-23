@@ -56,8 +56,8 @@ export default function Routes() {
       />
       <Switch>
       <PrivateRoute exact path="/" component={Main} />
-        <LoginRoute exact path="/login" component={Login} />
-        <LoginRoute exact path="/register" component={Register} />
+        <LoginRoute path="/login" component={Login} />
+        <LoginRoute path="/register" component={Register} />
       </Switch>
     </BrowserRouter>
   );
