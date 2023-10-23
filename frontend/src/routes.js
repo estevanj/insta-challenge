@@ -7,7 +7,7 @@ import Login from "./pages/Login";
 import { isAuthenticated } from "./services/auth";
 import Main from "./pages/Main";
 import Header from "./components/Header";
-
+import Post from "./pages/Post";
 
 const PrivateRoute = ({ component: Component, ...rest }) => (
   <Route
@@ -58,6 +58,7 @@ export default function Routes() {
       <PrivateRoute exact path="/" component={Main} />
         <LoginRoute path="/login" component={Login} />
         <LoginRoute path="/register" component={Register} />
+        <PrivateRoute exact path="/photo/:photo" component={Post} />
       </Switch>
     </BrowserRouter>
   );
