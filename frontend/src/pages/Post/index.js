@@ -37,6 +37,12 @@ export default function Post({ match }) {
       </Container>
     );
   } else {
+    let likesCount = 0;
+
+    if(post.photo.getLikes) {
+      likesCount = post.photo.getLikes.length;
+    }
+
     return (
       <Container>
         <ContainerPhoto>
@@ -72,7 +78,7 @@ export default function Post({ match }) {
             )}
           </ContainerComments>
           <ContainerOptions>
-            <span>{post.photo.likesCount} Me gustas</span>
+            <span>{likesCount} Me gustas</span>
             <div>{/* Aquí el boton de like */}</div>
           </ContainerOptions>
           <ContainerComment>{/* La sección de comentario */}</ContainerComment>
