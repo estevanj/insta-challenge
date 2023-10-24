@@ -13,6 +13,7 @@ const multerConfig = require("./Config/multer");
 const PhotoController = require("./Controllers/PhotoController");
 const FollowController = require("./Controllers/FollowController");
 const CommentController = require("./Controllers/CommentController");
+const LikeController = require("./Controllers/LikeController");
 
 routes.post("/auth", ValidationAuth.login, AuthController.login);
 routes.get(
@@ -34,8 +35,8 @@ routes.post(
   PhotoController.store
 );
 routes.get("/photos/:id", authMiddleware, PhotoController.show);
-
 routes.post("/follows/:user_id", authMiddleware, FollowController.store);
+routes.post("/likes/:photo", authMiddleware, LikeController.store);
 
 routes.post(
   "/comments/:photo",

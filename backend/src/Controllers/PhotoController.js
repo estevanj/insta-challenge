@@ -21,7 +21,7 @@ module.exports = {
         },
         {
           association: "getLikes",
-          attributes: []
+          attributes: ["id", "user_id"]
         },
         {
           association: "getComments",
@@ -35,6 +35,7 @@ module.exports = {
       group: [
         "uploadedBy.id",
         "Photo.id",
+        "getLikes.id",
         "getComments.id",
         "getComments->postedBy.id"
       ]
